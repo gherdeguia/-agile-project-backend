@@ -29,8 +29,7 @@ public class CinemaService {
 
     public List<Time> getScreenTimeById(String cinemaName) {
         Cinema cinema = cinemaRepository.findByName(cinemaName);
-         return cinema.getScreenings().stream().map(screening -> screening.getStartTime()).collect(Collectors.toList());
+         return cinema.getScreening().stream().map(screening -> screening.getStartTime()).collect(Collectors.toList());
     }
-
 
 }
