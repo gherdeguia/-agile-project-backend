@@ -1,24 +1,24 @@
-package model;
+package com.example.agileprojectbackend.model;
 
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Screening {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer screeningId;
-    private List<String> availableSeats;
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "movieId")
+    @Column(name="id")
+    private Integer id;
+    private String availableSeats; //TODO: create another class for this list
+   // @OneToOne(cascade = CascadeType.ALL, mappedBy = "id")
     private Integer movieId;
     private Time startTime;
     private Time endTime;
     private Date movieDate;
 
-    public Screening(Integer screeningId, List<String> availableSeats, Integer movieId, Time startTime, Time endTime, Date movieDate) {
-        this.screeningId = screeningId;
+    public Screening(Integer id, String availableSeats, Integer movieId, Time startTime, Time endTime, Date movieDate) {
+        this.id = id;
         this.availableSeats = availableSeats;
         this.movieId = movieId;
         this.startTime = startTime;
@@ -29,19 +29,19 @@ public class Screening {
     public Screening() {
     }
 
-    public Integer getScreeningId() {
-        return screeningId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setScreeningId(Integer screeningId) {
-        this.screeningId = screeningId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public List<String> getAvailableSeats() {
+    public String getAvailableSeats() {
         return availableSeats;
     }
 
-    public void setAvailableSeats(List<String> availableSeats) {
+    public void setAvailableSeats(String availableSeats) {
         this.availableSeats = availableSeats;
     }
 
