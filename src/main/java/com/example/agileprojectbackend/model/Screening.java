@@ -1,4 +1,4 @@
-package model;
+package com.example.agileprojectbackend.model;
 
 import javax.persistence.*;
 import java.sql.Time;
