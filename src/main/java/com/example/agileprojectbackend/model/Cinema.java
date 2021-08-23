@@ -1,24 +1,24 @@
 package com.example.agileprojectbackend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Cinema {
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private List<Screening> screeningList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<Movie> movies;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<Screening> screenings;
 
-    public Cinema(Integer id, String name, List<Screening> screeningList) {
+    public Cinema(Integer id, String name, List<Movie> movies, List<Screening> screeningList) {
         this.id = id;
         this.name = name;
-        this.screeningList = screeningList;
+        this.movies = movies;
+        this.screenings = screeningList;
     }
 
     public Cinema() {
@@ -40,11 +40,19 @@ public class Cinema {
         this.name = name;
     }
 
-    public List<Screening> getScreeningList() {
-        return screeningList;
+    public List<Screening> getScreening() {
+        return screenings;
     }
 
-    public void setScreeningList(List<Screening> screeningList) {
-        this.screeningList = screeningList;
+    public void setScreening(List<Screening> screenings) {
+        this.screenings = screenings;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
     }
 }

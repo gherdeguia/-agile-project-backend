@@ -8,20 +8,19 @@ import java.util.Date;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer movieId;
+    private Integer id;
     private String name;
     private String synopsis;
     private String directedBy;
     private String rated;
     private Time runningTime;
-    private String genre;
+    private String genre; //TODO: create another class for this list
     private Date releaseDate;
-    private String castAndCrews;
+    private String castAndCrews; //TODO: create another class for this list
     private String poster;
 
-    public Movie(Integer movieId, String name, String synopsis, String directedBy, String rated, Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster) {
-        this.movieId = movieId;
+    public Movie(Integer id, String name, String synopsis, String directedBy, String rated, Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster) {
+        this.id = id;
         this.name = name;
         this.synopsis = synopsis;
         this.directedBy = directedBy;
@@ -36,12 +35,12 @@ public class Movie {
     public Movie() {
     }
 
-    public Integer getMovieId() {
-        return movieId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMovieId(Integer movieId) {
-        this.movieId = movieId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
