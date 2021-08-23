@@ -8,10 +8,10 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+//@Entity
 public class Movie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer movieId;
     private String name;
     private String synopsis;
