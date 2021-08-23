@@ -5,10 +5,10 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+//@Entity
 public class Screening {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer screeningId;
     private List<String> availableSeats;
 //    @OneToOne(cascade = CascadeType.ALL, mappedBy = "movieId")
