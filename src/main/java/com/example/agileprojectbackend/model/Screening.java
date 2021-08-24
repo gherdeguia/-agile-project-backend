@@ -3,6 +3,7 @@ package com.example.agileprojectbackend.model;
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Screening {
@@ -11,16 +12,15 @@ public class Screening {
     @Column(name="id")
     private Integer id;
     private String availableSeats; //TODO: create another class for this list
-   // @OneToOne(cascade = CascadeType.ALL, mappedBy = "id")
-    private Integer movieId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<Cinema> cinemas;
     private Time startTime;
     private Time endTime;
     private Date movieDate;
 
-    public Screening(Integer id, String availableSeats, Integer movieId, Time startTime, Time endTime, Date movieDate) {
+    public Screening(Integer id, String availableSeats, Time startTime, Time endTime, Date movieDate) {
         this.id = id;
         this.availableSeats = availableSeats;
-        this.movieId = movieId;
         this.startTime = startTime;
         this.endTime = endTime;
         this.movieDate = movieDate;
@@ -45,14 +45,6 @@ public class Screening {
         this.availableSeats = availableSeats;
     }
 
-    public Integer getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Integer movieId) {
-        this.movieId = movieId;
-    }
-
     public Time getStartTime() {
         return startTime;
     }
@@ -75,5 +67,13 @@ public class Screening {
 
     public void setMovieDate(Date movieDate) {
         this.movieDate = movieDate;
+    }
+
+    public List<Cinema> getCinemas() {
+        return cinemas;
+    }
+
+    public void setCinemas(List<Cinema> cinemas) {
+        this.cinemas = cinemas;
     }
 }

@@ -7,7 +7,6 @@ import com.example.agileprojectbackend.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
 import java.util.List;
 
 @RestController
@@ -26,9 +25,5 @@ public class CinemaController {
     @GetMapping(params = "cinemaName")
     public CinemaResponse findCinemaName(@RequestParam String cinemaName) {
         return cinemaMapper.toResponse(cinemaService.getAllPosterByCinemaName(cinemaName));
-    }
-    @GetMapping(params = "cinemaName1")
-    public List<Time> findCinemaName1(@RequestParam String cinemaName) {
-        return cinemaService.getScreenTimeById(cinemaName);
     }
 }

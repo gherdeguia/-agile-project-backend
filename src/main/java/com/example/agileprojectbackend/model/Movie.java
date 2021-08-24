@@ -3,6 +3,7 @@ package com.example.agileprojectbackend.model;
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Movie {
@@ -18,6 +19,7 @@ public class Movie {
     private Date releaseDate;
     private String castAndCrews; //TODO: create another class for this list
     private String poster;
+    private int cinemaId;
 
     public Movie(Integer id, String name, String synopsis, String directedBy, String rated, Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster) {
         this.id = id;
@@ -114,4 +116,13 @@ public class Movie {
     public void setPoster(String poster) {
         this.poster = poster;
     }
+
+    public int getCinemaId() {
+        return cinemaId;
+    }
+
+    public void setCinemaId(int cinemaId) {
+        this.cinemaId = cinemaId;
+    }
+
 }
