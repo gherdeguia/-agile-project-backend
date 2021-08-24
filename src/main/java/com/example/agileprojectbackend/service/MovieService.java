@@ -1,5 +1,6 @@
 package com.example.agileprojectbackend.service;
 
+import com.example.agileprojectbackend.exception.MovieNotFoundException;
 import com.example.agileprojectbackend.model.Movie;
 import com.example.agileprojectbackend.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,8 @@ public class MovieService {
     }
 
     public Movie getMovieById(Integer movieId) {
-        return movieRepository.findById(movieId).orElse(null);
+        return movieRepository.findById(movieId)
+                .orElseThrow(() -> new MovieNotFoundException("Movie ID not exist!"));
     }
 
     public List<Movie> getTrendingMovies() {
