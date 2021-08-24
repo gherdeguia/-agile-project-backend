@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/cinemas")
 public class CinemaController {
     @Autowired
-     CinemaService cinemaService;
+    CinemaService cinemaService;
     @Autowired
     CinemaMapper cinemaMapper;
 

@@ -18,6 +18,7 @@ public class CinemaService {
     public List<Cinema> getAllCinema(){
         return cinemaRepository.findAll();
     }
+
     public Cinema getAllPosterByCinemaName(String cinemaName) {
         Cinema cinema = cinemaRepository.findByName(cinemaName);
         System.out.println("get movie id : "+ cinema.getId());

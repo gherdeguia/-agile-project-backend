@@ -20,12 +20,15 @@ public class UsersService {
         return userRepository.getById(userId);
     }
 
-    public Users getUserByEmail(String email) {
+    public List<Users> getUserByEmail(String email) {
         return userRepository.findByEmailAddress(email);
     }
 
     public Users saveNewUser(Users user){
-        return userRepository.save(user);
+        if(emailDoesNotExists(user.getEmailAddress())){
+            return userRepository.save(user);
+        }
+        return null;
     }
 
     public Users updateUser(Integer id, Users userToBeUpdate){
@@ -37,5 +40,13 @@ public class UsersService {
                     return userRepository.save(userToBeUpdate);
                 })
                 .orElseThrow(null);
+    }
+
+    public List<Users> findByEmailAddress(String emailAddress){
+        return userRepository.findByEmailAddress(emailAddress);
+    }
+
+    public boolean emailDoesNotExists(String emailAddress){
+        return findByEmailAddress(emailAddress).size() > 0;
     }
 }
