@@ -18,6 +18,7 @@ public class Movie {
     private Date releaseDate;
     private String castAndCrews; //TODO: create another class for this list
     private String poster;
+    private int cinemaId;
     private String status;
     private Double criticsRating;
     private Double audienceRating;
@@ -122,6 +123,15 @@ public class Movie {
     public void setPoster(String poster) {
         this.poster = poster;
     }
+
+    public int getCinemaId() {
+        return cinemaId;
+    }
+
+    public void setCinemaId(int cinemaId) {
+        this.cinemaId = cinemaId;
+    }
+
 
     public String getStatus() {
         return status;
