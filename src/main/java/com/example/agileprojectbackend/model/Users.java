@@ -10,21 +10,19 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String userName;
-    private String lastName;
-    private String firstName;
     private String emailAddress;
+    private String fullName;
+    private String password;
     private String phoneNumber;
 
     public Users() {
     }
 
-    public Users(Integer id, String userName, String lastName, String firstName, String emailAddress, String phoneNumber) {
+    public Users(Integer id, String emailAddress, String fullName, String password, String phoneNumber) {
         this.id = id;
-        this.userName = userName;
-        this.lastName = lastName;
-        this.firstName = firstName;
         this.emailAddress = emailAddress;
+        this.fullName = fullName;
+        this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
@@ -36,36 +34,28 @@ public class Users {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getEmailAddress() {
         return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhoneNumber() {
