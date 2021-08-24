@@ -15,4 +15,12 @@ public class UsersService {
     public List<Users> getAllUserProfiles(){
         return userRepository.findAll();
     }
+
+    public Users getUserProfileById(Integer userId) {
+        return userRepository.getById(userId);
+    }
+
+//    public Users getUserByEmail(String email) {
+//        return userRepository.findByName(email);
+//    }
 }

@@ -1,12 +1,11 @@
 package com.example.agileprojectbackend.controller;
 
+import com.example.agileprojectbackend.dto.UserResponse;
 import com.example.agileprojectbackend.mapper.UserMapper;
 import com.example.agileprojectbackend.model.Users;
 import com.example.agileprojectbackend.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,14 +14,25 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UsersService usersService;
+    private UsersService usersService;
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     @GetMapping
     public List<Users> getAllUserProfiles(){
         return usersService.getAllUserProfiles();
+    }
+
+    @GetMapping("/{userId}")
+    public UserResponse getUserById(@PathVariable Integer userId){
+        return userMapper.toResponse(usersService.getUserProfileById(userId));
+    }
+
+    @GetMapping(params = "email")
+    public UserResponse getUserByEmail(@RequestParam String email){
+//        return userMapper.toResponse(usersService.getUserByEmail(email));
+        return null;
     }
 
 }
