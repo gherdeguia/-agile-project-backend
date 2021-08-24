@@ -14,14 +14,13 @@ public class Movie {
     private String directedBy;
     private String rated;
     private Time runningTime;
-    private String genre;
+    private String genre; //TODO: create another class for this list
     private Date releaseDate;
-    private String castAndCrews;
+    private String castAndCrews; //TODO: create another class for this list
     private String poster;
     private String status;
     private Double criticsRating;
     private Double audienceRating;
-
 
     public Movie(Integer id, String name, String synopsis, String directedBy, String rated,
                  Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster,
@@ -44,12 +43,12 @@ public class Movie {
     public Movie() {
     }
 
-    public Integer getMovieId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setMovieId(Integer movieId) {
-        this.id = movieId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
