@@ -28,7 +28,7 @@ public class MovieService {
     public List<Movie> getTrendingMovies() {
         return movieRepository.findAll(Sort.by(Sort.Direction.DESC, "criticsRating"))
                 .stream()
-                .filter(movie -> movie.getStatus().equals("showing"))
+                .filter(movie -> "showing".equalsIgnoreCase(movie.getStatus()))
                 .collect(Collectors.toList());
 
     }
