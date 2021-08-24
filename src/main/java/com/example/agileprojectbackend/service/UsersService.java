@@ -20,7 +20,22 @@ public class UsersService {
         return userRepository.getById(userId);
     }
 
-//    public Users getUserByEmail(String email) {
-//        return userRepository.findByName(email);
-//    }
+    public Users getUserByEmail(String email) {
+        return userRepository.findByEmailAddress(email);
+    }
+
+    public Users saveNewUser(Users user){
+        return userRepository.save(user);
+    }
+
+    public Users updateUser(Integer id, Users userToBeUpdate){
+        return userRepository.findById(id)
+                .map(user -> {
+                    userToBeUpdate.setFullName(user.getFullName());
+                    userToBeUpdate.setPhoneNumber(user.getPhoneNumber());
+
+                    return userRepository.save(userToBeUpdate);
+                })
+                .orElseThrow(null);
+    }
 }
