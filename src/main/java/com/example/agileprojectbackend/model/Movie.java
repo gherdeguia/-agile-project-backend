@@ -3,7 +3,6 @@ package com.example.agileprojectbackend.model;
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Movie {
@@ -20,8 +19,13 @@ public class Movie {
     private String castAndCrews; //TODO: create another class for this list
     private String poster;
     private int cinemaId;
+    private String status;
+    private Double criticsRating;
+    private Double audienceRating;
 
-    public Movie(Integer id, String name, String synopsis, String directedBy, String rated, Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster) {
+    public Movie(Integer id, String name, String synopsis, String directedBy, String rated,
+                 Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster,
+                 String status, Double criticsRating, Double audienceRating) {
         this.id = id;
         this.name = name;
         this.synopsis = synopsis;
@@ -32,6 +36,9 @@ public class Movie {
         this.releaseDate = releaseDate;
         this.castAndCrews = castAndCrews;
         this.poster = poster;
+        this.status = status;
+        this.criticsRating = criticsRating;
+        this.audienceRating = audienceRating;
     }
 
     public Movie() {
@@ -125,4 +132,28 @@ public class Movie {
         this.cinemaId = cinemaId;
     }
 
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Double getCriticsRating() {
+        return criticsRating;
+    }
+
+    public void setCriticsRating(Double criticsRating) {
+        this.criticsRating = criticsRating;
+    }
+
+    public Double getAudienceRating() {
+        return audienceRating;
+    }
+
+    public void setAudienceRating(Double audienceRating) {
+        this.audienceRating = audienceRating;
+    }
 }

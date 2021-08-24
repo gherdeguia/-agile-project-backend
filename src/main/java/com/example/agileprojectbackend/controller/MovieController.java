@@ -31,4 +31,9 @@ public class MovieController {
         return movieService.getMovieById(movieId);
     }
 
+    @GetMapping("/trending")
+    public List<Movie> getTrendingMovies() {
+        return movieService.getTrendingMovies();
+    }
+
 }
