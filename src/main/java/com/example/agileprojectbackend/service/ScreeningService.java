@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ScreeningService {
@@ -34,12 +35,18 @@ public class ScreeningService {
         Movie getMovie = searchedMovie.stream().filter( movie -> movie.getName().equals(movieName)).findFirst()
                 .orElseThrow(null);
 
-        return getScreeningListByCinemaMovie(cinemaID, getMovie.getId());
-//        return null;
+        return getScreeningListByCinemaAndMovie(cinemaID, getMovie.getId());
     }
 
-    private List<Screening> getScreeningListByCinemaMovie(Integer cinemaID, Integer id) {
-        return null;
+    private List<Screening> getScreeningListByCinemaAndMovie(Integer cinemaID, Integer movieId) {
+            List<Screening> screeningList = screeningRepository.findByCinemaId(cinemaID);
+            return screeningList.stream()
+                    .filter( movieScreening -> movieScreening.getMovieId().equals(movieId))
+                    .collect(Collectors.toList());
+//        return null;
+    }
+    private List<Screening> getScreeningListByCinema(Integer cinemaID) {
+        return screeningRepository.findByCinemaId(cinemaID);
     }
 
 
