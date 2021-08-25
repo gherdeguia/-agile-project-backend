@@ -7,7 +7,8 @@ import java.util.Date;
 @Entity
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "movie_sequence")
+    @SequenceGenerator(name = "movie_sequence", sequenceName = "movie_sequence", allocationSize = 1)
     private Integer id;
     private String name;
     private String synopsis;
