@@ -35,4 +35,12 @@ public class ScreeningController {
 //        return screeningService.getSeatByScreeningID(screening_id);
 //    }
 
+    ///screenings/{cinemaId}/{movieName}
+    @GetMapping("/{cinemaID}/{movieName}")
+    public List<Screening> getScreeningsById(@PathVariable Integer cinemaID, @PathVariable String movieName){
+        return screeningService.getScreeningListByCinemaAndMovieName(cinemaID, movieName);
+//        return screeningService.getScreeningById(screening_id);
+//        return null;
+    }
+
 }
