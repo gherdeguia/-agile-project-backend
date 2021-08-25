@@ -1,5 +1,7 @@
 package com.example.agileprojectbackend.service;
 
+import com.example.agileprojectbackend.model.Movie;
+import com.example.agileprojectbackend.model.Screening;
 import com.example.agileprojectbackend.repository.CinemaRepository;
 import com.example.agileprojectbackend.model.Cinema;
 import com.example.agileprojectbackend.repository.MovieRepository;
@@ -15,6 +17,7 @@ public class CinemaService {
 
     @Autowired
     private MovieRepository movieRepository;
+
     public List<Cinema> getAllCinema(){
         return cinemaRepository.findAll();
     }
@@ -23,5 +26,15 @@ public class CinemaService {
         Cinema cinema = cinemaRepository.findByName(cinemaName);
         System.out.println("get movie id : "+ cinema.getId());
         return cinema;
+    }
+
+    public List<Screening> getAllScreening(Integer id){
+        Cinema cinema1 = cinemaRepository.findById(id).orElse(null);
+        System.out.println("cinema id  "+cinema1.getId());
+
+        Movie movie1 = movieRepository.findById(cinema1.getMovies().get(0).getId()).orElse(null);
+        System.out.println("movie name "+ movie1.getName());
+        return null;
+
     }
 }

@@ -21,20 +21,20 @@ public class MovieIntegrationTest {
     private MovieRepository movieRepository;
 
 
-    @Test
-    void should_return_correct_movie_when_call_get_movie_by_id_api() throws Exception {
-        //given
-
-        final Movie movie = new Movie(2,"Enteng Kabisote","Enteng bought mushroom","Directed by: Piolo", "Rated: PG",
-               null,"Genre: Romance", null, "Cast: Edgar", "sampleurl",1, "Showing", 3.0, 4.0);
-
-        final Movie getMovie =  movieRepository.save(movie);
-        //when and then
-        mockMvc.perform(MockMvcRequestBuilders.get("/movies/{id}", movie.getId()))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("Enteng Kabisote"))
-                .andExpect(jsonPath("$.synopsis").value("Enteng bought mushroom"))
-                .andExpect(jsonPath("$.directedBy").value("Directed by: Piolo"))
-                .andExpect(jsonPath("$.rated").value("Rated: PG"));
-    }
+//    @Test
+//    void should_return_correct_movie_when_call_get_movie_by_id_api() throws Exception {
+//        //given
+//
+//        final Movie movie = new Movie(2,"Enteng Kabisote","Enteng bought mushroom","Directed by: Piolo", "Rated: PG",
+//               null,"Genre: Romance", null, "Cast: Edgar", "sampleurl",1, "Showing", 3.0, 4.0);
+//
+//        final Movie getMovie =  movieRepository.save(movie);
+//        //when and then
+//        mockMvc.perform(MockMvcRequestBuilders.get("/movies/{id}", movie.getId()))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.name").value("Enteng Kabisote"))
+//                .andExpect(jsonPath("$.synopsis").value("Enteng bought mushroom"))
+//                .andExpect(jsonPath("$.directedBy").value("Directed by: Piolo"))
+//                .andExpect(jsonPath("$.rated").value("Rated: PG"));
+//    }
 }
