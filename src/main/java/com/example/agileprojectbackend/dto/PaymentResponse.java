@@ -15,14 +15,15 @@ public class PaymentResponse {
     private String movieName;
     private String cinemaName;
     private Date screeningDate;
-    private Time screeningTime;
+    private Time screeningStartTime;
+    private Time screeningEndTime;
     private String selectedSeats;
     private Double totalPrice;
 
     public PaymentResponse() {
     }
 
-    public PaymentResponse(String fullName, String email, Integer contactDetail, Integer cardDetail, String cardHolderName, Integer cardExpiration, Integer cardCode, String movieName, String cinemaName, Date screeningDate, Time screeningTime, String selectedSeats, Double totalPrice) {
+    public PaymentResponse(String fullName, String email, Integer contactDetail, Integer cardDetail, String cardHolderName, Integer cardExpiration, Integer cardCode, String movieName, String cinemaName, Date screeningDate, Time screeningStartTime, Time screeningEndTime, String selectedSeats, Double totalPrice) {
         this.fullName = fullName;
         this.email = email;
         this.contactDetail = contactDetail;
@@ -33,7 +34,8 @@ public class PaymentResponse {
         this.movieName = movieName;
         this.cinemaName = cinemaName;
         this.screeningDate = screeningDate;
-        this.screeningTime = screeningTime;
+        this.screeningStartTime = screeningStartTime;
+        this.screeningEndTime = screeningEndTime;
         this.selectedSeats = selectedSeats;
         this.totalPrice = totalPrice;
     }
@@ -118,12 +120,20 @@ public class PaymentResponse {
         this.screeningDate = screeningDate;
     }
 
-    public Time getScreeningTime() {
-        return screeningTime;
+    public Time getScreeningStartTime() {
+        return screeningStartTime;
     }
 
-    public void setScreeningTime(Time screeningTime) {
-        this.screeningTime = screeningTime;
+    public void setScreeningStartTime(Time screeningStartTime) {
+        this.screeningStartTime = screeningStartTime;
+    }
+
+    public Time getScreeningEndTime() {
+        return screeningEndTime;
+    }
+
+    public void setScreeningEndTime(Time screeningEndTime) {
+        this.screeningEndTime = screeningEndTime;
     }
 
     public String getSelectedSeats() {

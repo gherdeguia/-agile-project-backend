@@ -15,7 +15,8 @@ public class PaymentRequest {
     private String movieName;
     private String cinemaName;
     private Date screeningDate;
-    private Time screeningTime;
+    private Time screeningStartTime;
+    private Time screeningEndTime;
     private String selectedSeats;
     private Double totalPrice;
 
@@ -102,12 +103,20 @@ public class PaymentRequest {
         this.screeningDate = screeningDate;
     }
 
-    public Time getScreeningTime() {
-        return screeningTime;
+    public Time getScreeningStartTime() {
+        return screeningStartTime;
     }
 
-    public void setScreeningTime(Time screeningTime) {
-        this.screeningTime = screeningTime;
+    public void setScreeningStartTime(Time screeningStartTime) {
+        this.screeningStartTime = screeningStartTime;
+    }
+
+    public Time getScreeningEndTime() {
+        return screeningEndTime;
+    }
+
+    public void setScreeningEndTime(Time screeningEndTime) {
+        this.screeningEndTime = screeningEndTime;
     }
 
     public String getSelectedSeats() {

@@ -10,7 +10,8 @@ CREATE TABLE if NOT EXISTS Payment(
   movie_Name varchar(255),
   cinema_Name varchar(255),
   screening_date     date,
-  screening_time     time,
+  screening_start_time     time,
+  screening_end_time    time,
   selected_seats varchar(255),
   total_price double
 );
