@@ -17,13 +17,26 @@ public class Screening {
     private Time startTime;
     private Time endTime;
     private Date movieDate;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "screening_id")
+    private List<Seat> seats;
 
-    public Screening(Integer id, String availableSeats, Time startTime, Time endTime, Date movieDate) {
+    public Screening(Integer id, String availableSeats, List<Cinema> cinemas, Time startTime, Time endTime, Date movieDate, List<Seat> seats) {
+        this.id = id;
+        this.availableSeats = availableSeats;
+        this.cinemas = cinemas;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.movieDate = movieDate;
+        this.seats = seats;
+    }
+
+    public Screening(Integer id, String availableSeats, Time startTime, Time endTime, Date movieDate, List<Seat> seat_id) {
         this.id = id;
         this.availableSeats = availableSeats;
         this.startTime = startTime;
         this.endTime = endTime;
         this.movieDate = movieDate;
+        this.seats = seat_id;
     }
 
     public Screening() {
@@ -75,5 +88,14 @@ public class Screening {
 
     public void setCinemas(List<Cinema> cinemas) {
         this.cinemas = cinemas;
+    }
+
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
     }
 }
