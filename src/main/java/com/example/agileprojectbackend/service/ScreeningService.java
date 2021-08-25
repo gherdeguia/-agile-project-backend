@@ -31,11 +31,12 @@ public class ScreeningService {
     }
 
     public List<Screening> getScreeningListByCinemaAndMovieName(Integer cinemaID, String movieName) {
-        List<Movie> searchedMovie = movieRepository.findByCinemaId(cinemaID);
-        Movie getMovie = searchedMovie.stream().filter( movie -> movie.getName().equals(movieName)).findFirst()
+        List<Movie> MoviesListUnderCinema = movieRepository.findByCinemaId(cinemaID);
+
+        Movie searchedMovie = MoviesListUnderCinema.stream().filter( movie -> movie.getName().equals(movieName)).findFirst()
                 .orElseThrow(null);
 
-        return getScreeningListByCinemaAndMovie(cinemaID, getMovie.getId());
+        return getScreeningListByCinemaAndMovie(cinemaID, searchedMovie.getId());
     }
 
     private List<Screening> getScreeningListByCinemaAndMovie(Integer cinemaID, Integer movieId) {
