@@ -2,6 +2,7 @@ package com.example.agileprojectbackend.controller;
 
 import com.example.agileprojectbackend.model.Movie;
 import com.example.agileprojectbackend.service.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ import java.util.List;
 public class MovieController {
 
     private List<Movie> movies = new ArrayList<>();
+
+    @Autowired
     private MovieService movieService;
 
     public MovieController(MovieService movieService) {

@@ -18,7 +18,7 @@ public class Movie {
     private Date releaseDate;
     private String castAndCrews; //TODO: create another class for this list
     private String poster;
-    private int cinemaId;
+    private Integer cinemaId;
     private String status;
     private Double criticsRating;
     private Double audienceRating;
