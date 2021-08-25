@@ -8,8 +8,8 @@ import java.util.List;
 @Entity
 public class Screening {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "screening_sequence")
+    @SequenceGenerator(name = "screening_sequence", sequenceName = "screening_sequence", allocationSize = 1)
     private Integer id;
     private String availableSeats; //TODO: create another class for this list
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")

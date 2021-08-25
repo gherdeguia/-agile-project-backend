@@ -1,0 +1,12 @@
+#need change the url,username,password
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-52-72-125-94.compute-1.amazonaws.com/d2j6finckrnn52
+    username: hquxlhmxerqnzb
+    password: 19614f647032d096cfaf22192934d6e61d510143fbe3f9c00e89ad35c78d816e
+  jpa:
+    hibernate:
+      ddl-auto: none
+server:
+  port: 8080

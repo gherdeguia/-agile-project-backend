@@ -6,7 +6,8 @@ import java.util.List;
 @Entity
 public class Cinema {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "cinema_sequence")
+    @SequenceGenerator(name = "cinema_sequence", sequenceName = "cinema_sequence", allocationSize = 1)
     private Integer id;
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cinemaId")
