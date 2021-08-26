@@ -39,4 +39,5 @@ public class MovieController {
         return movieService.getTrendingMovies();
     }
 
+
 }
