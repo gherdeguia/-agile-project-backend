@@ -5,13 +5,7 @@ import java.util.Date;
 
 public class PaymentResponse {
 
-    private String fullName;
-    private String email;
-    private Integer contactDetail;
-    private Integer cardDetail;
-    private String cardHolderName;
-    private Integer cardExpiration;
-    private Integer cardCode;
+    private String ticketNumber;
     private String movieName;
     private String cinemaName;
     private Date screeningDate;
@@ -20,17 +14,13 @@ public class PaymentResponse {
     private String selectedSeats;
     private Double totalPrice;
 
+
+
     public PaymentResponse() {
     }
 
-    public PaymentResponse(String fullName, String email, Integer contactDetail, Integer cardDetail, String cardHolderName, Integer cardExpiration, Integer cardCode, String movieName, String cinemaName, Date screeningDate, Time screeningStartTime, Time screeningEndTime, String selectedSeats, Double totalPrice) {
-        this.fullName = fullName;
-        this.email = email;
-        this.contactDetail = contactDetail;
-        this.cardDetail = cardDetail;
-        this.cardHolderName = cardHolderName;
-        this.cardExpiration = cardExpiration;
-        this.cardCode = cardCode;
+    public PaymentResponse(String ticketNumber, String movieName, String cinemaName, Date screeningDate, Time screeningStartTime, Time screeningEndTime, String selectedSeats, Double totalPrice) {
+        this.ticketNumber = ticketNumber;
         this.movieName = movieName;
         this.cinemaName = cinemaName;
         this.screeningDate = screeningDate;
@@ -40,60 +30,12 @@ public class PaymentResponse {
         this.totalPrice = totalPrice;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getTicketNumber() {
+        return ticketNumber;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Integer getContactDetail() {
-        return contactDetail;
-    }
-
-    public void setContactDetail(Integer contactDetail) {
-        this.contactDetail = contactDetail;
-    }
-
-    public Integer getCardDetail() {
-        return cardDetail;
-    }
-
-    public void setCardDetail(Integer cardDetail) {
-        this.cardDetail = cardDetail;
-    }
-
-    public String getCardHolderName() {
-        return cardHolderName;
-    }
-
-    public void setCardHolderName(String cardHolderName) {
-        this.cardHolderName = cardHolderName;
-    }
-
-    public Integer getCardExpiration() {
-        return cardExpiration;
-    }
-
-    public void setCardExpiration(Integer cardExpiration) {
-        this.cardExpiration = cardExpiration;
-    }
-
-    public Integer getCardCode() {
-        return cardCode;
-    }
-
-    public void setCardCode(Integer cardCode) {
-        this.cardCode = cardCode;
+    public void setTicketNumber(String ticketNumber) {
+        this.ticketNumber = ticketNumber;
     }
 
     public String getMovieName() {
