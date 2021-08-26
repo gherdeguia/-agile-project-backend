@@ -23,7 +23,7 @@ public class CinemaController {
     CinemaMapper cinemaMapper;
 
     @GetMapping
-    public List<Cinema> getAllEmployeeInfo() {
+    public List<Cinema> getAllCinemaInfo() {
         return cinemaService.getAllCinema();
     }
 

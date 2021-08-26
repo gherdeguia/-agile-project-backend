@@ -23,8 +23,9 @@ public class Movie {
     private String status;
     private Double criticsRating;
     private Double audienceRating;
+    private int movieId;
 
-    public Movie(Integer id, String name, String synopsis, String directedBy, String rated, Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster, int cinemaId, String status, Double criticsRating, Double audienceRating) {
+    public Movie(Integer id, String name, String synopsis, String directedBy, String rated, Time runningTime, String genre, Date releaseDate, String castAndCrews, String poster, Integer cinemaId, String status, Double criticsRating, Double audienceRating, int movieId) {
         this.id = id;
         this.name = name;
         this.synopsis = synopsis;
@@ -39,6 +40,7 @@ public class Movie {
         this.status = status;
         this.criticsRating = criticsRating;
         this.audienceRating = audienceRating;
+        this.movieId = movieId;
     }
 
     public Movie() {
@@ -155,5 +157,13 @@ public class Movie {
 
     public void setAudienceRating(Double audienceRating) {
         this.audienceRating = audienceRating;
+    }
+
+    public int getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 }
