@@ -25,8 +25,8 @@ public class MovieController {
     }
 
     @GetMapping
-    public List<Movie> getAllMovies() {
-        return movieService.getAllMovies();
+    public List<Movie> getAllDistinctMovies() {
+        return movieService.getAllDistinctMovies();
     }
 
     @GetMapping("/{movieId}")

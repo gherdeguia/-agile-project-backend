@@ -7,8 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
+
+import static java.util.Comparator.comparingInt;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 @Service
 public class MovieService {
@@ -16,8 +22,10 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
-    public List<Movie> getAllMovies() {
-        return movieRepository.findAll();
+    public List<Movie> getAllDistinctMovies() {
+      return movieRepository.findAll().stream()
+                .collect(collectingAndThen(toCollection(() -> new TreeSet<>(comparingInt(Movie::getMovieId))),
+                        ArrayList::new));
     }
 
     public Movie getMovieById(Integer movieId) {
