@@ -9,11 +9,11 @@ CREATE TABLE if NOT EXISTS Payment(
   card_holder_name varchar(255),
   card_expiration int,
   card_code int,
-  movie_Name varchar(255),
-  cinema_Name varchar(255),
-  screening_date     date,
-  screening_start_time     time,
+  movie_Name            varchar(255),
+  cinema_Name           varchar(255),
+  screening_date        date,
+  screening_start_time  time,
   screening_end_time    time,
-  selected_seats varchar(255),
-  total_price double
+  selected_seats        varchar(255),
+  total_price           double precision
 );
