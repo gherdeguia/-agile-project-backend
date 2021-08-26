@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -34,11 +35,14 @@ public class MovieService {
     }
 
     public List<Movie> getTrendingMovies() {
-        return movieRepository.findAll(Sort.by(Sort.Direction.DESC, "criticsRating"))
-                .stream()
-                .filter(movie -> "showing".equalsIgnoreCase(movie.getStatus()))
+        List<Movie> movies = getAllDistinctMovies();
+        Comparator<Movie> comparedByCriticsRating = Comparator.comparing(Movie::getCriticsRating);
+        movies.sort(comparedByCriticsRating.reversed());
+        return movies.stream()
+                .filter(movie -> movie.getStatus()
+                        .equals("showing"))
+                .limit(5)
                 .collect(Collectors.toList());
-
     }
 
 }
