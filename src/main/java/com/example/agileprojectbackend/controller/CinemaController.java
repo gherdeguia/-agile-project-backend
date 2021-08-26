@@ -3,6 +3,7 @@ package com.example.agileprojectbackend.controller;
 import com.example.agileprojectbackend.dto.CinemaResponse;
 import com.example.agileprojectbackend.mapper.CinemaMapper;
 import com.example.agileprojectbackend.model.Cinema;
+import com.example.agileprojectbackend.model.Movie;
 import com.example.agileprojectbackend.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,11 @@ public class CinemaController {
     @GetMapping(params = "cinemaName")
     public CinemaResponse findCinemaName(@RequestParam String cinemaName) {
         return cinemaMapper.toResponse(cinemaService.getAllPosterByCinemaName(cinemaName));
+    }
+
+    @GetMapping(params = {"cinemaName","genre"})
+    public List<Movie> getMovieByGenreInChosenCinema(@RequestParam String cinemaName, String genre){
+        return cinemaService.getMovieByGenreInChosenCinema(cinemaName,genre);
     }
 
 }
