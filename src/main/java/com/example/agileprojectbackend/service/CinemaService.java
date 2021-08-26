@@ -8,7 +8,9 @@ import com.example.agileprojectbackend.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CinemaService {
@@ -36,5 +38,16 @@ public class CinemaService {
         System.out.println("movie name "+ movie1.getName());
         return null;
 
+    }
+
+    public List<Movie> getMovieByGenreInChosenCinema(String cinemaName, String genre){
+        return getAllPosterByCinemaName(cinemaName).getMovies()
+                .stream()
+                .filter(movie -> getMovieGenres(movie).contains(genre))
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getMovieGenres(Movie movie){
+        return  Arrays.asList(movie.getGenre().split("\\s+"));
     }
 }
